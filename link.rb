@@ -17,8 +17,10 @@ class Stack
   # Push a value onto the stack
   def push(value)
     node = LinkedListNode.new(value, top_node)
-    prev_node = top_node
     top_node = node.next_node 
+    if top_node = nil
+      top_node = node
+  end
   end
 
   # Pop an item off the stack.
