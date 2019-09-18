@@ -24,8 +24,8 @@ class Stack
   # stack and return the value to the user
   def pop
     temp_node = @top_node
-    top_node = @next_node
-    return temp_node.top_node
+    @top_node = @top_node.next_node
+    return temp_node.value
   end
 end
 
