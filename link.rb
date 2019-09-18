@@ -9,14 +9,16 @@ end
 
 # Stack is a FILO data structure (first in last out)
 class Stack
+  attr_accessor :top_node
   def initialize
     @top_node = nil
   end
 
   # Push a value onto the stack
   def push(value)
-    node = LinkedListNode.new(value, next_node)
-    @top_node = node
+    node = LinkedListNode.new(value, top_node)
+    prev_node = top_node
+    top_node = node.next_node 
   end
 
   # Pop an item off the stack.
@@ -24,8 +26,7 @@ class Stack
   # stack and return the value to the user
   def pop
     temp_node = @top_node
-    @top_node = @top_node.next_node
-    return temp_node.value
+    puts temp_node
   end
 end
 
@@ -66,6 +67,7 @@ node = LinkedListNode.new(0)
 100.times do |index|
   node = LinkedListNode.new(index + 1, node)
 end
+
 
 
 print_values(node)
