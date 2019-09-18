@@ -15,7 +15,7 @@ class Stack
 
   # Push a value onto the stack
   def push(value)
-    node = LinkedListNode.new(@value, @next_node)
+    node = LinkedListNode.new(value, next_node)
     @top_node = node
   end
 
