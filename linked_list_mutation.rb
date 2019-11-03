@@ -56,12 +56,20 @@ def reverse_list_mutation(node)
     #shift focus
     node = next_node
     prev_node = curr_node
-
-
   end
 
   return prev_node
 
+end
+
+def is_circular(node)
+  hashmap = Hash.new
+  hashmap[node.object_id] = true
+  while node 
+    return true if hashmap[node.object_id] == true
+    hashmap[node.object_id] = true
+    node = node.next_node
+  end
 end
 
 node = LinkedListNode.new(0)
@@ -89,6 +97,14 @@ stack = Stack.new
 node1 = LinkedListNode.new(1)
 node2 = LinkedListNode.new(2, node1)
 node3 = LinkedListNode.new(3, node2)
+node4 = LinkedListNode.new(4, node3)
+node5 = LinkedListNode.new(5, node4)
+node6 = LinkedListNode.new(6, node5)
+node7 = LinkedListNode.new(7, node6)
+node8 = LinkedListNode.new(8, node7)
+node9 = LinkedListNode.new(9, node8)
+node10 = LinkedListNode.new(10, node9)
+node5.next_node = node10
 
 reverse = reverse_list_mutation(node3)
 print_values(reverse)
